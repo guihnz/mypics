@@ -1,7 +1,15 @@
-$body-bg: #333;
-$navbar-inverse-link-color: #999;
-$jumbotron-bg: #666;
-$brand-primary: #f39c12;
-$text-color: #fff;
+@import url(http://fonts.googleapis.com/css?family=Oxygen:400,300,700);
 
+$body-bg: 																#333;
+$navbar-inverse-link-color: 							#999;
+$font-family-sans-serif:									'Oxygen', sans-serif;
+$jumbotron-bg: 														#666;
+$brand-primary: 													#f39c12;
+$text-color: 															#fff;
+$navbar-inverse-brand-color: 							#f39c12;
+$navbar-inverse-brand-hover-color: 				#e08e0b;
 @import 'bootstrap';
+
+.navbar-brand {
+	font-weight: bold;
+}
