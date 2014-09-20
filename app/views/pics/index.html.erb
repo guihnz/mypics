@@ -13,8 +13,12 @@
       <tr>
         <td><%= pic.tag %></td>
         <td><%= link_to 'Show', pic %></td>
-        <td><%= link_to 'Edit', edit_pic_path(pic) %></td>
-        <td><%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% if pic.user == current_user %>
+          <td><%= link_to 'Edit', edit_pic_path(pic) %></td>
+          <td><%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +26,6 @@
 
 <br>
 
-<%= link_to 'New Pic', new_pic_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Pic', new_pic_path %>
+<% end %>
