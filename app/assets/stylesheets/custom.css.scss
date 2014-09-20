@@ -8,8 +8,14 @@ $brand-primary: 													#f39c12;
 $text-color: 															#fff;
 $navbar-inverse-brand-color: 							#f39c12;
 $navbar-inverse-brand-hover-color: 				#e08e0b;
+
+
 @import 'bootstrap';
 
 .navbar-brand {
 	font-weight: bold;
+}
+
+.text-black {
+	color: #222;
 }
