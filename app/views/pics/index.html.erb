@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Tag</th>
       <th colspan="3"></th>
     </tr>
@@ -11,6 +12,7 @@
   <tbody>
     <% @pics.each do |pic| %>
       <tr>
+        <td><%= image_tag pic.image.url(:medium)  %></td>
         <td><%= pic.tag %></td>
         <td><%= link_to 'Show', pic %></td>
 
