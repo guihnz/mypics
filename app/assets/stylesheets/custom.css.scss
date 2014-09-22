@@ -1,21 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Oxygen:400,300,700);
 
-$body-bg: 																#222;
-$navbar-inverse-link-color: 							#999;
+$body-bg: 																#eee;
 $font-family-sans-serif:									'Oxygen', sans-serif;
-$jumbotron-bg: 														#333;
-$brand-primary: 													#f39c12;
-$text-color: 															#fff;
-$navbar-inverse-brand-color: 							#f39c12;
-$navbar-inverse-brand-hover-color: 				#e08e0b;
-
+$brand-primary: 													#FF9900;
+$navbar-inverse-bg: 											#fff;
+$navbar-inverse-link-color:								#FF9900;
+$navbar-inverse-link-hover-color:					#CC6600;
+$navbar-inverse-brand-hover-color:				#CC6600;
+$jumbotron-bg: 														#fff;
 
 @import 'bootstrap';
 
-.navbar-brand {
-	font-weight: bold;
-}
-
-.text-black {
-	color: #222;
-}

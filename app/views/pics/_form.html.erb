@@ -1,27 +1,30 @@
 <%= form_for @pic, html: { multipart: true }  do |f| %>
-  <% if @pic.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pic.errors.count, "error") %> prohibited this pic from being saved:</h2>
+	<% if @pic.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@pic.errors.count, "error") %> prohibited this pic from being saved:</h2>
 
-      <ul>
-      <% @pic.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+			<% @pic.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %> <br />
-  </div>
 
-  <div class="field">
-    <%= f.label :tag %>
-    <%= f.text_field :tag %> <br />
-  </div>
+		<div class="form-group">
+			<%= f.label :image %>
+			<%= f.file_field :image %> <br />
+		</div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+		<div class="form-group">
+			<%= f.label :tag %>
+			<%= f.text_field :tag, class: "form-control" %> <br />
+		</div>
+
+		<div class="actions">
+			<%= f.submit class: "btn btn-primary" %>
+		</div>
+
+
 <% end %>

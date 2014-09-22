@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar navbar-inverse navbar-default" role="navigation">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -16,11 +16,16 @@
       <ul class="nav navbar-nav navbar-right">
         
         <% if user_signed_in? %>
-          <li><%= link_to 'New Pic', new_pic_path %></li>
+          <li>
+            <%= link_to new_pic_path do %>
+              <span class="glyphicon glyphicon-plus"></span> New Pic
+            <% end %>
+          </li>
+
           <li><%= link_to "My Account", edit_user_registration_path %></li>
-          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-link" %></li> 
+          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li> 
         <% else %>
-          <li><%= link_to "Log In", new_user_session_path, class: "btn btn-link" %></li>
+          <li><%= link_to "Log In", new_user_session_path %></li>
         <% end %>
 
       </ul>
