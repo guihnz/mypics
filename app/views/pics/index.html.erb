@@ -1,33 +1,17 @@
-<h1>Listing pics</h1>
+<div id="pic" class="transitions-enabled">
+	<% @pics.each do |pic| %>
+		<div class="box panel panel-default">
+			<%= image_tag pic.image.url(:medium)  %>
+			<div class="panel-body">
+				<%= pic.tag %>
+				<%= link_to 'Show', pic %>
+				
+				<% if pic.user == current_user %>
+					<%= link_to 'Edit', edit_pic_path(pic) %>
+					<%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Tag</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pics.each do |pic| %>
-      <tr>
-        <td><%= image_tag pic.image.url(:medium)  %></td>
-        <td><%= pic.tag %></td>
-        <td><%= link_to 'Show', pic %></td>
-
-        <% if pic.user == current_user %>
-          <td><%= link_to 'Edit', edit_pic_path(pic) %></td>
-          <td><%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<% if user_signed_in? %>
-  <%= link_to 'New Pic', new_pic_path %>
-<% end %>
+</div>
