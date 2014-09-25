@@ -1,12 +1,12 @@
 class PicsController < ApplicationController
   before_action :set_pic, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
 
   # GET /pics
   # GET /pics.json
   def index
-    @pics = Pic.all.order "created_at DESC"
+      @pics = current_user.pics.order "created_at DESC"
   end
 
   # GET /pics/1
@@ -58,7 +58,7 @@ class PicsController < ApplicationController
   def destroy
     @pic.destroy
     respond_to do |format|
-      format.html { redirect_to pics_url, notice: 'Pic was successfully destroyed.' }
+      format.html { redirect_to pics_url, notice: 'Pic was successfully deleted.' }
       format.json { head :no_content }
     end
   end

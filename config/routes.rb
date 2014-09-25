@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   resources :pics
 
   devise_for :users
-  root "pics#index"
+  # authenticated :user do
+  #   root "pics#index", as: :auth_root
+  # end
+  root "pages#home"
   get "about" => "pages#about"
 
   # The priority is based upon order of creation: first created -> highest priority.
