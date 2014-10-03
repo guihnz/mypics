@@ -1,0 +1,35 @@
+<div id="tag_cloud">
+	<div class="panel panel-default" style="text-align: center">
+			<div class="panel-body">
+				<% tag_cloud Pic.tag_counts, %w[s m l] do |tag, css_class| %>
+					<%= link_to "##{tag.name}", tag_path(tag.name), class: css_class %>
+				<% end %>
+			</div>
+	</div>
+</div>
+
+<div id="pic" class="transitions-enabled">
+	<% @pics.each do |pic| %>
+		
+		<div class="box panel panel-default">
+			<%= link_to image_tag(pic.image.url(:medium)), pic %>
+			
+			<div class="panel-body">
+				<%= pic.tag_list.map { |p| link_to "##{p}", tag_path(p) }.join(" ").html_safe %>		
+					
+					<% if current_user && pic.user == current_user %>
+					
+						<div class="actions">
+							<%= link_to edit_pic_path(pic) do %>
+								<span class= "glyphicon glyphicon-edit"></span>
+							<% end %>
+							
+							<%= link_to pic, method: :delete, data: { confirm: 'Are you sure?' } do %>
+								<span class="glyphicon glyphicon-trash"></span>
+							<% end %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>

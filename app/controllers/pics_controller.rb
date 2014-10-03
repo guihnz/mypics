@@ -4,7 +4,6 @@ class PicsController < ApplicationController
   before_action :authenticate_user!
 
   # GET /pics
-  # GET /pics.json
   def index
     if params[:tag]
       @pics = Pic.tagged_with(params[:tag])
@@ -14,7 +13,6 @@ class PicsController < ApplicationController
   end
 
   # GET /pics/1
-  # GET /pics/1.json
   def show
   end
 
@@ -28,7 +26,6 @@ class PicsController < ApplicationController
   end
 
   # POST /pics
-  # POST /pics.json
   def create
     @pic = current_user.pics.build(pic_params)
 
@@ -44,7 +41,6 @@ class PicsController < ApplicationController
   end
 
   # PATCH/PUT /pics/1
-  # PATCH/PUT /pics/1.json
   def update
     respond_to do |format|
       if @pic.update(pic_params)
@@ -58,7 +54,6 @@ class PicsController < ApplicationController
   end
 
   # DELETE /pics/1
-  # DELETE /pics/1.json
   def destroy
     @pic.destroy
     respond_to do |format|
