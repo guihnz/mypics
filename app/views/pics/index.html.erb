@@ -6,7 +6,8 @@
 			<%= link_to image_tag(pic.image.url(:medium)), pic %>
 			
 			<div class="panel-body">
-				<%= pic.tag %>		
+				<%= pic.tag_list.map { |p| link_to "##{p}", tag_path(p) }.join(" ").html_safe %>		
+					
 					<% if current_user && pic.user == current_user %>
 					
 						<div class="actions">

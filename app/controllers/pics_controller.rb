@@ -6,7 +6,11 @@ class PicsController < ApplicationController
   # GET /pics
   # GET /pics.json
   def index
+    if params[:tag]
+      @pics = Pic.tagged_with(params[:tag])
+    else
       @pics = current_user.pics.order "created_at DESC"
+    end
   end
 
   # GET /pics/1
@@ -76,6 +80,6 @@ class PicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pic_params
-      params.require(:pic).permit(:tag, :image)
+      params.require(:pic).permit(:tag_list, :image)
     end
 end

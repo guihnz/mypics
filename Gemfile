@@ -16,6 +16,7 @@ gem 'devise', '~> 3.3.0'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '~> 1.53.0'
 gem 'masonry-rails', '~> 0.2.1'
+gem 'acts-as-taggable-on', '~> 3.4.1'
 
 group :development, :test do
 	gem 'sqlite3'

@@ -1,23 +1,25 @@
-<p><%= link_to '<< Back', pics_path %></p>
+<body id="pic-show">
+	<p><%= link_to '<< Back', pics_path %></p>
 
-	<div class="row">
+		<div class="">
 
-			<div class="panel panel-default">
-			  <div class="panel-heading" style="text-align: center">
-					<%= image_tag @pic.image.url(:big)  %>
+				<div class="panel panel-black">
+				  <div class="panel-heading-dark" style="text-align: center">
+						<%= image_tag @pic.image.url(:big)  %>
+					</div>
+
+					<div class="panel-body panel-body-black">
+						<p><%= @pic.tag_list.map { |p| link_to "##{p}", tag_path(p) }.join(" ").html_safe  %></p>
+
+							<% if current_user && @pic.user == current_user %>
+								<%= link_to edit_pic_path(@pic) do %>
+									<span class= "glyphicon glyphicon-edit"></span>
+									Edit
+								<% end %>
+
+					</div>
+
 				</div>
-
-				<div class="panel-body">
-					<p><%= @pic.tag %></p>
-
-						<% if current_user && @pic.user == current_user %>
-							<%= link_to edit_pic_path(@pic) do %>
-								<span class= "glyphicon glyphicon-edit"></span>
-								Edit
-							<% end %>
-
-				</div>
-
-			</div>
-	</div>
-<% end %>
+		</div>
+	<% end %>
+</body>
