@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   resources :pics
   devise_for :users
   resources :users, :only => [:show]
-  # authenticated :user do
-  #   root "pics#index", as: :auth_root
-  # end
+
   root "pages#home"
   get "about" => "pages#about"
   get 'tags/:tag', to: 'pics#index', as: :tag
