@@ -11,9 +11,29 @@ $jumbotron-bg: 														#FFF;
 $icon-font-path: 'bootstrap/';
 @import 'bootstrap';
 
+/* BASIC */
+
+img {
+	max-width: 100%;
+}
+
+
+/* PIC - INDEX */
+
 .actions {
 	text-align: right;
 }
+
+#tag_cloud {
+  width: 400px;
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+}
+
+
+/* PIC - SHOW */
 
 #pic-show {
 	background-color: black;
@@ -25,8 +45,4 @@ $icon-font-path: 'bootstrap/';
 
 .panel-heading-dark {
 	background-color: #333;
-}
-
-img {
-	max-width: 100%;
 }
